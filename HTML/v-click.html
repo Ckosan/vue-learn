@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <button @click="btn()">按钮11</button>
+  <!--  传递事件-->
+  <button @click="btn1($event)">按钮22</button>
+  <button @click="btn2('a')">按钮33</button>
+  <button @keyup.enter="btn4">按钮44</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好甜"
+    },
+    methods: {
+      btn() {
+        console.log("按钮1");
+      },
+      btn1(event) {
+        console.log(event);
+      },
+      btn2(a) {
+        console.log(a);
+      },
+      btn4() {
+        console.log("按钮444");
+      }
+    }
+  })
+</script>
+</body>
+</html>

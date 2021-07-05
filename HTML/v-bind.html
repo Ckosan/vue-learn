@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <h2>书的总价格：{{totalPrice}}</h2>
+  <span :title="message">
+     鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+  <p>{{text}}</p>
+  <input type="text" v-model="text">
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好甜" + new Date().toLocaleString(),
+      text: "",
+      books: [
+        {id: 1, price: 100, name: "Unix编程艺术"},
+        {id: 2, price: 99, name: "大话通信"},
+        {id: 2, price: 108, name: "信号分析"},
+      ]
+    },
+    //属性计算
+    computed: {
+      totalPrice() {
+        let price = 0
+        for (let i = 0; i < this.books.length; i++) {
+          console.log("进入循环");
+          price += this.books[i].price
+        }
+        return price
+      }
+    }
+  })
+</script>
+</body>
+</html>
