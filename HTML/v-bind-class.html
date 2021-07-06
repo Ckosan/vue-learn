@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-      h2 {
+      /*h2 {*/
+      /*    color: green;*/
+      /*}*/
+      .active {
           color: green;
       }
 
@@ -17,6 +20,7 @@
 <body>
 <div id="app">
   {{message}}
+  <!--  绑定样式-->
   <h2 :class="{active:isActive}">你好呀</h2>
   <button @click="changeColor">变色龙</button>
 </div>

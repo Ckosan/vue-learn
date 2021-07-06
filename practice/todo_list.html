@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" v-model="todo" placeholder="添加todo" @keyup.enter="addTodoList">
+  <input type="radio" name="isDone" value="完成">
+  <input type="radio" name="isDone" value="未完成">
+  <h2>正在进行<span>{{unDoCount}}</span></h2>
+  <ul>
+    <li v-for="(value,key) in todoList" :key="key" v-if="value.isDone=== false">
+      <span>{{value.todo}}</span>
+      <input type="button" @click="todoDone(key)" value="完成">
+    </li>
+  </ul>
+  <h2>----------------------------------</h2>
+  <ul>
+    <li v-for="(value,key) in todoList" :key="key" v-if="value.isDone === true">
+      <span> {{ value.todo}}</span>
+    </li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好甜",
+      todoList: [],
+      todo: "",
+      unDoCount: 0
+    },
+    methods: {
+      addTodoList() {
+        this.todoList.push({todo: this.todo, isDone: false})
+        this.unDoCount++
+        this.todo = ""
+      },
+      todoDone(key) {
+        this.todoList.forEach(function (obj, index, array) {
+          if (index === key) {
+            obj.isDone = !obj.isDone
+          }
+        })
+        this.unDoCount--
+      }
+    }
+  })
+</script>
+</body>
+</html>

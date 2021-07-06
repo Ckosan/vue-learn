@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <pierson></pierson>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  <!--  全局组件-->
+  Vue.component('pierson', {
+    template: "<h1>第一个组件</h1>"
+  })
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好甜"
+    }
+  })
+</script>
+</body>
+</html>

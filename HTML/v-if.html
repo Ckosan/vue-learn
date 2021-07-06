@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <br/>
+  <input v-model="type" type="text"/>
+  <br/>
+  <p v-if="seen" @click="notLook"> u looked me</p>
+  <div v-if="type==='A'">
+    A
+  </div>
+  <div v-else-if="type==='B'">
+    B
+  </div>
+  <div v-else>
+    C
+  </div>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好甜",
+      type: 'A',
+      seen: true,
+      timer: null
+    },
+    methods: {
+      notLook() {
+        this.seen = !this.seen
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
+          this.seen = !this.seen
+        }, 10000)
+      }
+    }
+  })
+</script>
+</body>
+</html>

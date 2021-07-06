@@ -12,8 +12,10 @@
      鼠标悬停几秒钟查看此处动态绑定的提示信息！
   </span>
   <p>{{text}}</p>
+  <!--  v-model 双向数据绑定-->
   <input type="text" v-model="text">
-
+  <!--  属性绑定-->
+  <a :href="url"><span>百度一次</span></a>
 </div>
 <script src="../js/vue.js"></script>
 <script>
@@ -26,8 +28,10 @@
         {id: 1, price: 100, name: "Unix编程艺术"},
         {id: 2, price: 99, name: "大话通信"},
         {id: 2, price: 108, name: "信号分析"},
-      ]
+      ],
+      url: "http://www.baidu.com"
     },
+
     //属性计算
     computed: {
       totalPrice() {
